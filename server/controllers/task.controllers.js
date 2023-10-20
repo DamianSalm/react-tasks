@@ -3,7 +3,7 @@ import {pool} from '../db_pool.js'
 
 export const getTasks = async (req, res) => {
 try {
-    const [result] = await pool.query('SELECT * FROM tasks ORDER BY created_at ASC')
+    const [result] = await pool.query('SELECT * FROM tasks ORDER BY created_at DESC')
   res.json(result)
 } catch (error){
   return res.status(500).json({message: error.message})
