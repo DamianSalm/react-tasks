@@ -2,12 +2,12 @@ import {pool} from '../db_pool.js'
 
 
 export const getTasks = async (req, res) => {
-try {
+  try {
     const [result] = await pool.query('SELECT * FROM tasks ORDER BY created_at DESC')
-  res.json(result)
-} catch (error){
-  return res.status(500).json({message: error.message})
-}
+    res.json(result)
+  } catch (error){
+    return res.status(500).json({message: error.message})
+  }
 }
 
 export const getTask = async (req, res) => {
