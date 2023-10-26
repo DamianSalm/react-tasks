@@ -11,6 +11,9 @@ function Navbar () {
         <li>
           <Link to= "/new"> Create Task!</Link>
         </li>
+        <li>
+          <Link to="/tries"> Tries </Link>
+        </li>
       </ul>
     </div>
   )

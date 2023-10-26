@@ -1,10 +1,10 @@
 import { Formik, Form } from 'formik'
-import { createTaskReq } from '../api/tasks.api.js'
+import { createTaskReq } from '../api/tasks.api'
 
 function TaskForm() {
   return(
     <div>
-      <h1>Create a new task :)</h1>
+      <h1>Create a new task</h1>
 
       <Formik
         initialValues={{
@@ -45,7 +45,7 @@ function TaskForm() {
           {isSubmitting?"Saving...": "Save"}
         </button>
       </Form>
-)}
+      )}
       </Formik>
 
 
