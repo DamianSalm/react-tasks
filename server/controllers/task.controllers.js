@@ -47,15 +47,9 @@ export const createTasks = async (req, res) => {
 
 export const updateTasks = async (req, res) => {
   try {
-    console.log("updating tareas")
     const [result] = await pool.query(
-      'UPDATE tasks SET ? WHERE id = ?',
-      [req.body, req.params.id]
-      )
-
-    res.json({
-      result
-    })
+      'UPDATE tasks SET ? WHERE id = ?', [req.body, req.params.id])
+    res.json(result)
   } catch (error){
       return res.status(500).json({message: error.message})
   }
@@ -65,9 +59,7 @@ export const deleteTasks = async (req, res) => {
   try {
     const  [result] = await pool.query(
       'DELETE FROM tasks WHERE id = ?',
-    [req.params.id]
-    )
-
+    [req.params.id])
     if (result.affectedRows == 0)
       return res.status(404).json({message : "Task not found."})
 

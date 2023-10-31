@@ -12,8 +12,6 @@ function Tries() {
     const loadTasks = async () => {
       const response = await getTasksReq();
       setTasks(response.data)
-      console.log(response);
-      console.log(response.data);
     }
     loadTasks();}, [])
 

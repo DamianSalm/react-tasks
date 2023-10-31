@@ -1,27 +1,26 @@
-import { getTasksReq } from '../api/tasks.api'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useTasks } from '../context/TaskProvider';
 import TaskCard from '../components/TaskCard'
-import axios from 'axios'
 
 
 function TasksPage () {
 
-  const [tasks, setTasks] = useState([])
+  const { tasks, loadTasks } = useTasks();
 
   useEffect( () => {
-    const loadTasks = async () => {
-      const response = await getTasksReq();
-      setTasks(response.data);
-    }
     loadTasks();
   }, []);
 
+  function renderMain() {
+    if(tasks.length == 0) return "No tasks yet"
+    return tasks.map( (task) => (<TaskCard task={task} key={task.id} />))
+
+}
 
   return (
     <div>
       <h1> Tasks Landing Page! </h1>
-
-      {tasks.map( (task) => (<TaskCard task={task} key={task.id} />))}
+      {renderMain()}
     </div>
   );
 }

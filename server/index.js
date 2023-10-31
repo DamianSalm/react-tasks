@@ -1,7 +1,6 @@
 import express from 'express';
 import {PORT} from './config.js'
 import cors from 'cors'
-
 import indexRoutes from './routes/index.routes.js'
 import taskRoutes from './routes/tasks.routes.js'
 
