@@ -14,6 +14,7 @@ function App(){
   return (
     <TaskContextProvider>
       <Navbar />
+      <div className='bg-zinc-900 h-screen px-40'>
       <Routes>
 
         <Route path="/" element={ <TasksPage /> } />
@@ -23,6 +24,7 @@ function App(){
 
         <Route path="*" element={ <NotFound/> } />
       </Routes>
+    </div>
     </TaskContextProvider>
   )
 }

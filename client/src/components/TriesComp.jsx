@@ -1,7 +1,6 @@
 import { getTasksReq } from '../api/tasks.api'
 import { useEffect, useState } from 'react'
 import TaskCard from './TaskCard'
-import axios from 'axios'
 
 
 function Tries() {

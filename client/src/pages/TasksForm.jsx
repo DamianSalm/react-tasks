@@ -23,8 +23,8 @@ function TaskForm() {
   }, []);
 
   return (
-    <div>
-      <h1>{params.id ? "Edit Task!" : "Create a new task!"}</h1>
+    <div className="p-4">
+      <h1 className="text-5xl text-white font-bold text-center py-4">{params.id ? "Editar esta tarea!" : "Crea una nueva tarea aqui!"}</h1>
       <Formik
         initialValues={{task}}
         enableReinitialize={true}
@@ -49,29 +49,33 @@ function TaskForm() {
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
-          <Form onSubmit={handleSubmit}>
-            <label>Title</label>
-            <input
-              name="title"
-              type="text"
-              placeholder="Title"
-              onChange={handleChange}
-              value={values.title}
-            />
+            <Form onSubmit={handleSubmit} className="flex-vertical max-w-full rounded-2xl p-4">
+              <label className="flex text-xl text-white font-medium py-4 px-2">Title:</label>
+              <input
+              className="flex bg-slate-200 text-black p-1 font-medium w-8/12"
+                name="title"
+                type="text"
+                placeholder="Title of this task"
+                onChange={handleChange}
+                value={values.title}
+              />
 
-            <label>Description</label>
-            <textarea
-              name="description"
-              rows="3"
-              placeholder="Description"
-              onChange={handleChange}
-              value={values.description}
-            ></textarea>
+              <label className="flex text-xl text-white font-medium py-4 px-2">Description:</label>
+              <textarea
+              className="flex bg-slate-200 text-black p-1 w-8/12"
+                name="description"
+                rows="3"
+                placeholder="Description"
+                onChange={handleChange}
+                value={values.description}
+              ></textarea>
 
-            <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Saving..." : "Save"}
-            </button>
-          </Form>
+              <button
+              className="px-2 py-1 mx-3 my-2 rounded bg-green-700 hover:bg-green-900 text-white font-bold"
+              type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Saving..." : "Save"}
+              </button>
+            </Form>
         )}
       </Formik>
     </div>

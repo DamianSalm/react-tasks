@@ -18,9 +18,11 @@ function TasksPage () {
 }
 
   return (
-    <div>
-      <h1> Tasks Landing Page! </h1>
-      {renderMain()}
+    <div className='p-4'>
+      <h1 className='text-5xl text-white font-bold text-center py-4'> Tasks here! </h1>
+      <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5'>
+        {renderMain()}
+      </div>
     </div>
   );
 }

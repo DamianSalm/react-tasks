@@ -12,19 +12,24 @@ function TaskCard({ task }) {
 
 
   return(
-    <div>
-        <h1>{ task.title }</h1>
-        <h4>{ task.description }</h4>
-        <button onClick={() => deleteTask(task.id)}>
+    <div className='bg-slate-400 rounded-xl p-4 m-2 flex-vertical justify-between'>
+      <header className='flex justify-between'>
+        <h1 className='text-lg font-bold'>{ task.title }</h1>
+        <button className='px-1 hover:rounded-full hover:bg-slate-600' onClick={()=> handleDone(task.done)}>{ task.done == 1 ? "🗸" : "❌" }</button>
+      </header>
+      <h4 className='text-sm font-medium'>{ task.description }</h4>
+      {/* <span>{ task.createdAt }</span> */}
+      <div className='flex gap-x-2'>
+        <button className='rounded-md bg-red-500 px-2 py-1 my-2 text-white hover:brightness-125 hover:rounded' onClick={() => deleteTask(task.id)}>
           Delete
         </button>
-        <button onClick={() => navigate(`edit/${task.id}`)}>
+        <button className='rounded-md bg-blue-500 px-2 py-1 my-2 text-white hover:brightness-125 hover:rounded' onClick={() => navigate(`edit/${task.id}`)}>
           Edit
         </button>
-        <br></br>
-        <button onClick={()=> handleDone(task.done)}>{ task.done == 1 ? "🗸" : "❌" }</button>
-        <br></br>
-        <br></br>
+      </div>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   )
 };
