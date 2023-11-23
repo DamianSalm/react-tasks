@@ -1,1 +1,1 @@
-example -> docker run --image mysql --name mysql_container --environment MY_SQL_ROOT_PASSWORD=pswrd
+on console -> docker run --name mysqlsrv --environment MY_SQL_ROOT_PASSWORD=pswrd --environment MYSQL_DATABASE=tasksdb -p 3306:3306 -d mysql
