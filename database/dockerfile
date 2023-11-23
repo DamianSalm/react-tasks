@@ -1,1 +1,1 @@
-on console -> docker run --name mysqlsrv -e MY_SQL_ROOT_PASSWORD=pswrd --e MYSQL_DATABASE=tasksdb -p 3306:3306 -d mysql
+on console -> docker run --name mysqlsrv -e MY_SQL_ROOT_PASSWORD=pswrd -e MYSQL_DATABASE=tasksdb -p 3306:3306 -d mysql
